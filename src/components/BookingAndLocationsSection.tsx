@@ -19,7 +19,6 @@ import {
   ExternalLink,
   CheckCircle2,
   AlertCircle,
-  Lock,
   Loader2,
   Building2,
 } from "lucide-react";
@@ -39,8 +38,7 @@ export function BookingAndLocationsSection({
   bookingPreset,
   onOpenPrivacyPolicy,
 }: BookingAndLocationsSectionProps) {
-  const { preferences, enableExternalMediaOnly, openPreferencesModal } = useCookieConsent();
-  const isMapAllowed = Boolean(preferences?.externalMedia);
+  useCookieConsent();
 
   const [selectedClinic, setSelectedClinic] = useState<"jesus" | "alboraya">("jesus");
   const [fullName, setFullName] = useState("");
@@ -292,66 +290,16 @@ export function BookingAndLocationsSection({
                 </a>
               </div>
 
-              {isMapAllowed ? (
-                <div className="relative aspect-[16/10] w-full bg-slate-100">
-                  <iframe
-                    title={`Mapa interactivo de ${activeClinicObj.name}`}
-                    src={activeClinicObj.googleMapsEmbedUrl}
-                    className="w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-              ) : (
-                /* Placeholder elegante AEPD cuando los cookies externos no están aceptados */
-                <div className="aspect-[16/10] w-full p-6 sm:p-8 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 text-white flex flex-col items-center justify-center text-center space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-400/40 text-teal-300 flex items-center justify-center">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div className="max-w-md space-y-1.5">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-teal-300">
-                      <Lock className="w-3 h-3" /> Protección de Privacidad RGPD / AEPD
-                    </span>
-                    <h4 className="font-display font-bold text-base sm:text-lg text-white">
-                      {activeClinicObj.name} · {activeClinicObj.address}, {activeClinicObj.postalCode}{" "}
-                      {activeClinicObj.city}
-                    </h4>
-                    <p className="text-xs text-slate-300 leading-relaxed">
-                      Para proteger tu privacidad, bloqueamos preventivamente la carga de scripts y cookies de Google
-                      Maps hasta que lo autorices.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
-                    <button
-                      type="button"
-                      onClick={enableExternalMediaOnly}
-                      className="min-h-[44px] px-4 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-display font-bold text-xs sm:text-sm shadow-md transition-colors"
-                    >
-                      Activar mapa interactivo
-                    </button>
-
-                    <a
-                      href={activeClinicObj.googleMapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="min-h-[44px] px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs sm:text-sm transition-colors inline-flex items-center gap-1.5"
-                    >
-                      <span>Ver ruta en Google Maps</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-
-                    <button
-                      type="button"
-                      onClick={openPreferencesModal}
-                      className="min-h-[44px] px-3 py-2 text-xs text-teal-300 hover:text-white underline"
-                    >
-                      Configurar cookies
-                    </button>
-                  </div>
-                </div>
-              )}
+              <div className="relative aspect-[16/10] w-full bg-slate-100">
+                <iframe
+                  title={`Mapa interactivo de ${activeClinicObj.name}`}
+                  src={activeClinicObj.googleMapsEmbedUrl}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
 

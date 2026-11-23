@@ -1,17 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { CLINIC_LOCATIONS } from "@/data/clinic-data";
+import { CLINIC_INFO, CLINIC_LOCATIONS } from "@/data/clinic-data";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ShieldCheck,
   Star,
   CalendarCheck,
   MessageCircle,
-  MapPin,
   Clock,
   CheckCircle2,
   Award,
+  Instagram,
+  Youtube,
+  Facebook,
 } from "lucide-react";
 
 interface HeroSectionProps {
@@ -24,7 +26,7 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
   const jesus = CLINIC_LOCATIONS.jesus;
 
   const whatsappHeroUrl = `https://wa.me/${jesus.whatsappNumber}?text=${encodeURIComponent(
-    "Hola Clínica FisioDietetic (Sede C/ Jesús 114, València) 👋 Me gustaría solicitar cita previa."
+    "Hola Clínica FisioDietetic 👋 Me gustaría solicitar cita previa."
   )}`;
 
   return (
@@ -50,7 +52,7 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
             {/* Badge Oficial Centro Sanitario */}
             <div className="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-teal-200/90 shadow-sm text-primary text-xs sm:text-sm font-semibold">
               <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
-              <span>Centro Sanitario Autorizado en València · N.º Registro 21951</span>
+              <span>Centro Sanitario Autorizado · N.º Registro 21951</span>
             </div>
 
             {/* H1 Fluido con clamp() */}
@@ -63,15 +65,15 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
               <span className="text-primary underline decoration-teal-300/70 decoration-4 underline-offset-4">
                 Fisioterapia, Osteopatía y Nutrición
               </span>{" "}
-              de confianza en Jesús, València.
+              de confianza en València.
             </h1>
 
             {/* Subtítulo persuasivo */}
             <p className="text-base sm:text-lg text-ink-secondary leading-relaxed max-w-2xl">
-              Un equipo de <strong>profesionales sanitarios colegiados</strong>. Tratamientos 100% individualizados,{" "}
-              <strong>nutrición con comida real del supermercado</strong> (sin batidos ni productos milagro), podología
-              avanzada y tarifas accesibles sin bonos abusivos.{" "}
-              <span className="text-primary font-semibold">Priorizamos tus urgencias de dolor.</span>
+              Un equipo de <strong>profesionales sanitarios debidamente titulados y colegiados</strong>. Tratamientos
+              100% individualizados, <strong>nutrición con comida real del supermercado</strong> (sin batidos ni
+              productos milagro), podología avanzada y tarifas accesibles sin bonos abusivos.{" "}
+              <span className="text-primary font-semibold">Ponte en buenas manos: priorizamos tus urgencias.</span>
             </p>
 
             {/* Social Proof inmediata */}
@@ -87,7 +89,6 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
               <span className="hidden sm:inline text-slate-300">|</span>
               <p className="text-xs sm:text-sm font-medium text-ink">
                 <strong>El 90% de nuestros pacientes vienen recomendados por el boca a boca</strong> · 4.5★ en Google
-                València
               </p>
             </div>
 
@@ -99,7 +100,7 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
                 className="min-h-[54px] px-7 py-3.5 rounded-2xl bg-accent hover:bg-accent-hover text-white font-display font-bold text-base shadow-lg shadow-orange-600/20 hover:shadow-xl hover:shadow-orange-600/25 transition-all flex items-center justify-center gap-2.5"
               >
                 <CalendarCheck className="w-5 h-5 shrink-0" />
-                <span>Pedir Cita en València</span>
+                <span>Pide una Cita</span>
               </button>
 
               <a
@@ -113,21 +114,51 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
               </a>
             </div>
 
-            {/* Micro-badges de ubicación y garantías */}
-            <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs text-ink-secondary">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-primary shrink-0" />
-                <span>
-                  <strong>C/ Jesús, 114</strong> (46007 València)
-                </span>
+            {/* Micro-badges de garantías y Redes Sociales Oficiales */}
+            <div className="pt-2 flex flex-wrap items-center justify-between gap-4 text-xs text-ink-secondary border-t border-slate-200/70">
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-1.5">
+                  <Clock className="w-4 h-4 text-primary shrink-0" />
+                  <span>Prioridad en urgencias de dolor</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                  <span>Sin bonos abusivos · Sesiones sueltas</span>
+                </div>
               </div>
+
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-primary shrink-0" />
-                <span>Cita rápida en urgencias de dolor</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                <span>También en Alboraya ({CLINIC_LOCATIONS.alboraya.phoneFormatted})</span>
+                <span className="font-semibold text-ink">Síguenos:</span>
+                <a
+                  href={CLINIC_INFO.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram de FisioDietetic"
+                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-pink-400 hover:text-pink-600 font-semibold transition-colors"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href={CLINIC_INFO.socialLinks.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Canal de YouTube de FisioDietetic"
+                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-red-400 hover:text-red-600 font-semibold transition-colors"
+                >
+                  <Youtube className="w-3.5 h-3.5" />
+                  <span>YouTube</span>
+                </a>
+                <a
+                  href={CLINIC_INFO.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook de FisioDietetic"
+                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-blue-400 hover:text-blue-600 font-semibold transition-colors"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                  <span>Facebook</span>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -142,11 +173,10 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
             <div className="relative rounded-3xl bg-white p-3 border border-slate-200 shadow-medical">
               {/* Aspect-ratio bloqueado 4:3 */}
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-gradient-to-br from-teal-800 to-primary">
-                {/* TODO: Sostituire con foto reale della clinica C/ Jesús 114 da /wp-content/uploads/ di fisiodietetic.com */}
                 {!heroImgError ? (
                   <img
                     src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
-                    alt="Interior luminoso y tratamiento fisioterapéutico personalizado en Clínica FisioDietetic València (Calle Jesús 114)"
+                    alt="Tratamiento fisioterapéutico personalizado en Clínica FisioDietetic"
                     className="w-full h-full object-cover"
                     onError={() => setHeroImgError(true)}
                   />
@@ -156,7 +186,7 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
                       Clínica FisioDietetic
                     </span>
                     <span className="text-sm text-teal-100">
-                      C/ Jesús, 114 · 46007 València · Reg. Sanitario 21951
+                      Centro Sanitario Autorizado · Reg. 21951
                     </span>
                   </div>
                 )}
@@ -169,7 +199,7 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
                       Trato 100% Individualizado
                     </span>
                     <p className="font-display font-bold text-sm sm:text-base leading-snug">
-                      Fisioterapia · Osteopatía C.O. · Nutrición · Podología · Láser
+                      Fisioterapia · Osteopatía · Nutrición · Podología · Láser
                     </p>
                   </div>
                 </div>
@@ -182,8 +212,8 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
                     <Award className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-xs sm:text-sm text-ink">100% Colegiados</p>
-                    <p className="text-[11px] text-ink-secondary">ICOFCV &amp; ICOPCV Oficial</p>
+                    <p className="font-display font-bold text-xs sm:text-sm text-ink">Equipo Colegiado</p>
+                    <p className="text-[11px] text-ink-secondary">Profesionales Titulados</p>
                   </div>
                 </div>
 
@@ -192,8 +222,8 @@ export function HeroSection({ onSelectBooking }: HeroSectionProps) {
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-xs sm:text-sm text-ink">Sin Bonos Abusivos</p>
-                    <p className="text-[11px] text-ink-secondary">Sesiones sueltas claras</p>
+                    <p className="font-display font-bold text-xs sm:text-sm text-ink">Sin Productos Milagro</p>
+                    <p className="text-[11px] text-ink-secondary">Comida real y sesiones sueltas</p>
                   </div>
                 </div>
               </div>

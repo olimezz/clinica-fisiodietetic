@@ -11,6 +11,9 @@ import {
   ShieldCheck,
   Cookie,
   MessageCircle,
+  Instagram,
+  Youtube,
+  Facebook,
 } from "lucide-react";
 
 interface FooterProps {
@@ -26,27 +29,60 @@ export function Footer({ onOpenLegalDoc }: FooterProps) {
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 pb-22 md:pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
-          {/* Columna 1: Identidad Clínica y Registro Sanitario (4 cols) */}
+          {/* Columna 1: Logo Oficial, Identidad Clínica y Redes Sociales (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center font-display font-extrabold text-lg">
-                FD
-              </div>
-              <div>
-                <span className="font-display font-extrabold text-xl text-white block leading-none">
-                  Clínica <span className="text-teal-400">FisioDietetic</span>
-                </span>
-                <span className="text-xs text-teal-300 font-medium">
-                  Centro Sanitario Autorizado · Reg. {CLINIC_INFO.sanitaryRegistryNumber}
-                </span>
-              </div>
+            <div className="inline-block bg-white p-2.5 rounded-2xl shadow-sm">
+              <img
+                src="/logotag.jpg"
+                alt="Logo Clínica FisioDietetic — Osteopatía, Fisioterapia, Nutrición"
+                className="h-14 w-auto object-contain"
+              />
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Clínica multidisciplinar de Fisioterapia, Osteopatía C.O., Nutrición con comida real del supermercado,
+              Clínica multidisciplinar de Fisioterapia, Osteopatía, Nutrición con comida real del supermercado,
               Podología, Drenaje Linfático, Pilates Terapéutico y Depilación Láser Diodo sin bonos en València y
               Alboraya.
             </p>
+
+            {/* Botones Redes Sociales Oficiales */}
+            <div className="space-y-2 pt-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-white block">
+                Síguenos en nuestras redes sociales:
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={CLINIC_INFO.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram Clínica FisioDietetic"
+                  className="min-h-[40px] px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-pink-600 text-white border border-slate-800 hover:border-pink-500 text-xs font-semibold transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Instagram className="w-4 h-4" />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href={CLINIC_INFO.socialLinks.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Canal YouTube Clínica FisioDietetic"
+                  className="min-h-[40px] px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-red-600 text-white border border-slate-800 hover:border-red-500 text-xs font-semibold transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Youtube className="w-4 h-4" />
+                  <span>YouTube</span>
+                </a>
+                <a
+                  href={CLINIC_INFO.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook Clínica FisioDietetic"
+                  className="min-h-[40px] px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-blue-600 text-white border border-slate-800 hover:border-blue-500 text-xs font-semibold transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Facebook className="w-4 h-4" />
+                  <span>Facebook</span>
+                </a>
+              </div>
+            </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-teal-300 font-semibold">
               <ShieldCheck className="w-4 h-4 shrink-0" />
@@ -84,7 +120,7 @@ export function Footer({ onOpenLegalDoc }: FooterProps) {
                   rel="noopener noreferrer"
                   className="text-green-400 hover:underline font-medium"
                 >
-                  WhatsApp Directo Jesús
+                  WhatsApp Directo València
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -155,11 +191,6 @@ export function Footer({ onOpenLegalDoc }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="#equipo" className="hover:text-teal-300 transition-colors">
-                  Equipo Colegiado
-                </a>
-              </li>
-              <li>
                 <a href="#por-que-elegirnos" className="hover:text-teal-300 transition-colors">
                   ¿Por qué elegirnos?
                 </a>
@@ -170,8 +201,18 @@ export function Footer({ onOpenLegalDoc }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#videos-youtube" className="hover:text-teal-300 transition-colors">
+                  Vídeos YouTube
+                </a>
+              </li>
+              <li>
                 <a href="#opiniones" className="hover:text-teal-300 transition-colors">
                   Opiniones Reales
+                </a>
+              </li>
+              <li>
+                <a href="#ubicacion" className="hover:text-teal-300 transition-colors">
+                  Dónde estamos / Mapa
                 </a>
               </li>
               <li>

@@ -68,11 +68,11 @@ export function SymptomSelector({
             className="font-display font-extrabold text-ink tracking-tight"
             style={{ fontSize: "clamp(1.5rem, 2.2vw + 0.8rem, 2.25rem)" }}
           >
-            ¿Qué necesitas hoy? Te recomendamos el especialista adecuado
+            ¿Qué necesitas hoy? Te recomendamos el tratamiento adecuado
           </h2>
           <p className="text-sm sm:text-base text-ink-secondary mt-1.5">
-            Selecciona tu síntoma u objetivo y descubre cómo nuestro equipo colegiado en{" "}
-            <strong>València (Barrio de Jesús)</strong> aborda tu caso.
+            Selecciona tu síntoma u objetivo y descubre cómo nuestro equipo de profesionales titulados y colegiados
+            aborda tu caso.
           </p>
         </div>
 
@@ -154,12 +154,14 @@ export function SymptomSelector({
                   </div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                      Especialista(s) Titulado(s) de Referencia
+                      Unidad Sanitaria Responsable
                     </p>
                     <p className="font-display font-bold text-sm sm:text-base text-ink">
-                      {activeGoal.recommendedSpecialistName}
+                      {activeGoal.recommendedSpecialistRole}
                     </p>
-                    <p className="text-xs text-ink-secondary">{activeGoal.recommendedSpecialistRole}</p>
+                    <p className="text-xs text-ink-secondary">
+                      Profesionales debidamente titulados y colegiados · Centro Sanitario Reg. 21951
+                    </p>
                   </div>
                 </div>
               </div>

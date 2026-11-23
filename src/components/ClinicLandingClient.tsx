@@ -8,7 +8,7 @@ import { SymptomSelector } from "@/components/SymptomSelector";
 import { WhyChooseUsSection } from "@/components/WhyChooseUsSection";
 import { SpecialtiesSection } from "@/components/SpecialtiesSection";
 import { LaserPricingSection } from "@/components/LaserPricingSection";
-import { TeamSection } from "@/components/TeamSection";
+import { YoutubeVideosSection } from "@/components/YoutubeVideosSection";
 import { ReviewsCarouselSection } from "@/components/ReviewsCarouselSection";
 import {
   BookingAndLocationsSection,
@@ -18,7 +18,7 @@ import { Footer } from "@/components/Footer";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { CookieBanner } from "@/components/CookieBanner";
 import { LegalModal, type LegalDocType } from "@/components/LegalModal";
-import type { SpecialtyItem, LaserTariffItem, TeamMember } from "@/data/clinic-data";
+import type { SpecialtyItem, LaserTariffItem } from "@/data/clinic-data";
 
 export function ClinicLandingClient() {
   const [activeModalSpecialty, setActiveModalSpecialty] = useState<SpecialtyItem | null>(null);
@@ -63,29 +63,6 @@ export function ClinicLandingClient() {
     [scrollToBookingForm]
   );
 
-  const handleBookWithSpecialist = useCallback(
-    (member: TeamMember) => {
-      let defaultTreatment = "Fisioterapia Traumatológica y Deportiva";
-      if (member.id === "andres-esteban") {
-        defaultTreatment = "Podología y Estudio Biomecánico / Plantillas";
-      } else if (member.id === "erica-ortiz") {
-        defaultTreatment = "Depilación Láser Diodo (Sesiones Sueltas)";
-      } else if (member.id === "sofia-sanchez") {
-        defaultTreatment = "Nutrición y Dietética (Comida Real)";
-      } else if (member.id === "vanessa-lamela") {
-        defaultTreatment = "Osteopatía (Estructural, Visceral o Pediátrica)";
-      } else if (member.id === "florencia-garcia") {
-        defaultTreatment = "Drenaje Linfático Manual";
-      }
-
-      scrollToBookingForm({
-        clinic: "jesus",
-        treatment: defaultTreatment,
-      });
-    },
-    [scrollToBookingForm]
-  );
-
   return (
     <CookieConsentProvider>
       <div className="min-h-screen flex flex-col bg-background text-ink selection:bg-primary selection:text-white">
@@ -110,7 +87,7 @@ export function ClinicLandingClient() {
 
           <LaserPricingSection onBookLaserZone={handleBookLaserZone} />
 
-          <TeamSection onBookWithSpecialist={handleBookWithSpecialist} />
+          <YoutubeVideosSection />
 
           <ReviewsCarouselSection />
 

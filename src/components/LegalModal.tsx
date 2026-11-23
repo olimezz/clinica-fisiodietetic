@@ -102,9 +102,8 @@ export function LegalModal({
               <h3 className="font-display font-bold text-base text-ink">2. Colegiación Profesional</h3>
               <p>
                 En cumplimiento de la Ley 44/2003 de Ordenación de las Profesiones Sanitarias, todos nuestros
-                profesionales sanitarios disponen de titulación oficial y número de colegiado activo visible en la
-                sección <em>«Equipo Titulado»</em> (Sofía Sánchez Col. 2484, Andrés Esteban Col. 2712 / 6686, Diana
-                Ortiz Col. 4644, Vanessa Lamela Col. 8067, Florencia García Col. 8560).
+                profesionales sanitarios disponen de titulación oficial y colegiación activa en los Colegios Oficiales
+                de Fisioterapeutas y Podólogos de la Comunitat Valenciana (ICOFCV e ICOPCV).
               </p>
 
               <h3 className="font-display font-bold text-base text-ink">3. Propiedad Intelectual y Legislación</h3>

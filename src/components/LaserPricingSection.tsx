@@ -61,9 +61,9 @@ export function LaserPricingSection({ onBookLaserZone }: LaserPricingSectionProp
               Tarifas Oficiales por Sesión Suelta: Sin atarte a bonos caros
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl">
-              Apto para todo tipo de pieles todo el año. Con nuestra especialista{" "}
-              <strong className="text-white">Erica Ortiz</strong>, pagas únicamente la sesión que realizas ese día, con
-              total transparencia y resultados visibles desde las primeras sesiones.
+              Apto para todo tipo de pieles todo el año. Con nuestro equipo especialista en fotodepilación láser, pagas
+              únicamente la sesión que realizas ese día, con total transparencia y resultados visibles desde las
+              primeras sesiones.
             </p>
           </div>
 
